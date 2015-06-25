@@ -1,2 +1,22 @@
-<h1>Watches#show</h1>
-<p>Find me in app/views/watches/show.html.erb</p>
+<section class="watch__large">
+	<!-- IMAGE -->
+</section>
+
+<section class="watch__info">
+	<h2><%= @watch.name %></h2>
+	<%= @watch.description %>
+
+	<div>
+		<span>Posted by <%# EMAIL OWNER OF WATCH %></span>
+	</div>
+
+	<div class="action">
+		<%# if current_owner?  %>
+			<%= link_to "Edit", '#' %>
+			<%= link_to "Delete", '#' %>
+		<%# else  %>
+			<%= number_to_currency @watch.price, unit: "£" %>
+			<%= link_to "Buy", "#" %>
+		<%# end %>
+	</div>
+</section>

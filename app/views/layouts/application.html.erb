@@ -7,8 +7,53 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+	<header>
+		<nav>
+			<%= link_to root_path do %>
+				<h1>Time<br>Keep</h1>
+			<% end %>
 
-<%= yield %>
+			<div class="actions">
+				<%# if logged_in?%>
+					<%= link_to "Katie", "#" %>
+					<%= link_to "Log Out", "#", class: "button" %>
+				<%# else %>
+					<%= link_to "Log In", "#" %>
+					<%= link_to "Sign Up", "#", class: "button" %>
+				<%# end %>
+			</div>
+		</nav>
+
+		<!-- Include User feddback code. -->
+	</header>
+
+	<%= yield %>
+</div>
+
+<footer>
+	<div class="container">
+		<address>
+			<p>Get In touch</p>
+			<p>Exmouth House</p>
+			<p>3 - 11 Pine Street</p>
+		</address>
+
+		<div>
+			<a href="tel:+442071395252">+44 (0)20 7139 5252</a>
+		</div>
+
+		<div>
+			<p><%= mail_to "hello@timekeep" %></p>
+		</div>
+
+		<div class="social">
+			<%# social_link_to :facebook  %>
+			<%# social_link_to :twitter  %>
+		</div>
+	</div>
+</footer>
+
 
 </body>
 </html>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625102147) do
+ActiveRecord::Schema.define(version: 20150625130934) do
 
   create_table "watches", force: :cascade do |t|
     t.string   "name"
@@ -20,9 +20,13 @@ ActiveRecord::Schema.define(version: 20150625102147) do
     t.integer  "price_in_pence"
     t.string   "style"
     t.string   "gender"
-    t.boolean  "pre_owned",      default: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.boolean  "pre_owned",          default: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
 end

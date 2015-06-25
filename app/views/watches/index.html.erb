@@ -9,7 +9,7 @@
 					<div class="price">
 						<!-- PRICE -->
 						<span>
-							<%= watch.price  %>
+							<%= number_to_currency watch.price, unit: "£"  %>
 						</span>
 					</div>
 				<% end %>

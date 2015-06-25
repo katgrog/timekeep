@@ -5,6 +5,23 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Watch.all.delete_all
+
+User.create(
+  [{
+    first_name: "Katie", 
+    last_name: "Grogan", 
+    username: "katgrog", 
+    email: "katie@steer.me"
+    },
+    {
+    first_name: "Tim", 
+    last_name: "McDonald-Bell", 
+    email: "tim@steer.me"
+    }
+    ])
+
+
 Watch.create([
   		{   name: "Backup Black", 
   			brand: "Swatch", 
@@ -35,3 +52,9 @@ Watch.create([
   			gender: "m"
   		}
   		])
+
+
+
+
+
+

@@ -9,13 +9,9 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if @user.save
-      # Prevent session hijacking 
-      reset_session
-      # Log the user in 
-      session[:user_id] = @user.id
-  	  redirect_to root_path
+      log_in
   	else
-  		render :new
+      re_render_form
   	end
   end
 
@@ -26,6 +22,20 @@ class UsersController < ApplicationController
   private
   def user_params
   	params.require(:user).permit(:username, :first_name, :last_name, :email, :password, :password_confirmation)
+  end
+
+  def log_in
+    #Prevent session hijacking
+    reset_session
+    # Log the user in 
+    session[:user_id] = @user.id
+    flash[:success] = "Thanks for signing up!"
+    redirect_to root_path
+  end
+
+  def re_render_form
+    flash[:error] = "Oops, something went wrong, please check the form for errors and try again."
+    render :new
   end
 end
 

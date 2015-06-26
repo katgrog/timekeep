@@ -5,8 +5,13 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <% if payment_page? %>
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  
+  <% end %>
 </head>
-<body>
+<body data-stripe-pk="<%= Rails.application.secrets.stripe_pk %>">
+
 <div class="container">
 	<header>
 		<nav>
@@ -60,6 +65,10 @@
 	</div>
 </footer>
 
-
+<script type="text/javascript">
+  	// This identifies your website in the createToken call below
+ 		Stripe.setPublishableKey($('body').data('stripe-pk'));
+  	// ...
+</script>
 </body>
 </html>

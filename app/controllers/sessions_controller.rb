@@ -4,8 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	@user = User.find_by(email: email)
-
+  	find_user 
   	if @user.present? and @user.authenticate(password)
   		# Log in here
   		log_in
@@ -25,6 +24,11 @@ class SessionsController < ApplicationController
   end 
 
   private
+
+  def find_user
+    @user = User.find_by(email: email)
+  end
+
   def log_in
   	reset_session
   	session[:user_id] = @user.id

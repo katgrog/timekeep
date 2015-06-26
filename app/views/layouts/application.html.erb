@@ -16,7 +16,8 @@
 
 			<div class="actions">
 				<% if logged_in?%>
-					<%= link_to current_user.first_name, user_path(current_user.id) %>
+					<%= link_to "Add Watch", new_watch_path %>
+					<%= link_to current_user.name, profile_path %>
 					<%= link_to "Log Out", session_path, method: :delete, class: "button" %>
 				<% else %>
 					<%= link_to "Log In", new_session_path %>

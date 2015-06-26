@@ -8,16 +8,16 @@
 	<%= @watch.description %>
 
 	<div>
-		<span>Posted by <%# EMAIL OWNER OF WATCH %></span>
+		<span>Posted by <%= mail_to @watch.user.email, @watch.user.first_name %></span>
 	</div>
 
 	<div class="action">
-		<%# if current_owner?  %>
-			<%= link_to "Edit", '#' %>
-			<%= link_to "Delete", '#' %>
-		<%# else  %>
-			<%= number_to_currency @watch.price, unit: "£" %>
-			<%= link_to "Buy", "#" %>
-		<%# end %>
+		<% if current_user_owns?(@watch)  %>
+			<%= link_to "Edit", edit_watch_path(@watch) %>
+			<%= link_to "Delete", watch_path(@watch), method: :delete, class: "button" %>
+		<% else  %>
+			<b><%= number_to_currency @watch.price, unit: "£" %></b>
+			<%= link_to "Buy", "#", class: "button" %>
+		<% end %>
 	</div>
 </section>

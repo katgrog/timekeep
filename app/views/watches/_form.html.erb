@@ -1,0 +1,13 @@
+<%= simple_form_for @watch do|f| %>
+	<%= f.input :name %>
+	<%= f.input :description %>
+	<%= f.input :price_in_pence %>
+	<%= f.input :style %>
+	<%= f.input :gender %>
+	<%= f.input :pre_owned, as: :boolean, boolean_style: :inline, inline_label: "Pre-owned?" %>
+	<%= f.input :brand %>
+	<%= f.input :image %>
+
+	<%= f.button :submit %>
+
+<% end %>

@@ -1,2 +1,14 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>Profile</h1>
+<h2><%= current_user.name %></h2>
+
+<!-- LIST ALL RECENT ORDERS -->
+
+
+<!-- LIST ALL UPLOADED WATCHES -->
+<% current_user.watches.each do |watch|  %>
+	<h4><%= watch.name %></h4>
+	<%= image_tag watch.image.url(:thumb) %>
+	<p>Uploaded <%= time_ago_in_words watch.created_at %> ago.</p>
+	<!-- # <p>< link_to "Purchased #{watch.orders.count}", watch_orders_path(watch) %> times.</p> -->
+<% end %>
+<!-- GROSS PROFIT ON WATCHES -->

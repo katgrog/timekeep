@@ -1,13 +1,2 @@
-<%= simple_form_for @watch do|f| %>
-	<%= f.input :name %>
-	<%= f.input :description %>
-	<%= f.input :price_in_pence %>
-	<%= f.input :style %>
-	<%= f.input :gender %>
-	<%= f.input :pre_owned %>
-	<%= f.input :brand %>
-	<%= f.input :image %>
-
-	<%= f.button :submit %>
-
-<% end %>
+<h2>New Watch</h2>
+<%= render "form" %>
